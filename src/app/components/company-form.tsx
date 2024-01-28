@@ -2,34 +2,26 @@
 
 import React from 'react';
 import { Form, Formik } from 'formik';
-import InputField from './input-field';
-import LogoUploader from './logo-uploader';
-import Button from './button';
-import StatusLabel from './status-label';
-// import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-// import {
-//   CompanyStatus,
-//   createCompany,
-//   getCategories,
-//   getCountries,
-// } from '@/lib/api';
+import Button from '@/app/components/button';
+import InputField from '@/app/components/input-field';
+import LogoUploader from '@/app/components/logo-uploader';
 
 export type CompanyFieldValues = {
-  title: string;
-  description: string;
+  name: string;
   status: string;
-  joinedDate: string;
-  categoryId: string;
-  countryId: string;
+  country: string;
+  category: string;
+  date: string;
+  description: string;
 };
 
 const initialValues: CompanyFieldValues = {
-  title: '',
-  description: '',
+  name: '',
   status: '',
-  joinedDate: '',
-  categoryId: '',
-  countryId: '',
+  country: '',
+  category: '',
+  date: '',
+  description: '',
 };
 
 export interface CompanyFormProps {
@@ -37,7 +29,6 @@ export interface CompanyFormProps {
 }
 
 export default function CompanyForm({ onSubmit }: CompanyFormProps) {
- 
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       <Form className="flex flex-col gap-10">
@@ -45,43 +36,25 @@ export default function CompanyForm({ onSubmit }: CompanyFormProps) {
         <div className="flex gap-6">
           <div className="flex flex-col flex-1 gap-5">
             <LogoUploader label="Logo" placeholder="Upload photo" />
-            <InputField
-              label="Status"
-              placeholder="Status"
-              name="status"
-              as="select"
-            />
-            <InputField
-              label="Country"
-              placeholder="Country"
-              name="countryId"
-              as="select"
-            />
+            <InputField label="Status" placeholder="Status" name="status" />
+            <InputField label="Country" placeholder="Country" name="country" />
           </div>
           <div className="flex flex-col flex-1 gap-5">
-            <InputField required label="Name" placeholder="Name" name="title" />
+            <InputField label="Name" placeholder="Name" name="name" />
             <InputField
               label="Category"
               placeholder="Category"
-              name="categoryId"
-              as="select"
+              name="category"
             />
+            <InputField label="Joined date" type="date" name="date" />
             <InputField
-              label="Joined date"
-              type="date"
-              name="joinedDate"
-            />
-            <InputField
-              required
               label="Description"
               placeholder="Description"
               name="description"
             />
           </div>
         </div>
-        <Button type="submit">
-          Add company
-        </Button>
+        <Button type="submit">Add company</Button>
       </Form>
     </Formik>
   );

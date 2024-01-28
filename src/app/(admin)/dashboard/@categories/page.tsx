@@ -1,5 +1,5 @@
 import React from 'react';
-import { getSummaryCategories } from '@/app/lib/api';
+import { getSummaryCategories } from '@/lib/api';
 import StatCard, { StatCardType } from '@/app/components/stat-card';
 import DashboardCard from '@/app/components/dashboard-card';
 

@@ -1,4 +1,3 @@
-import StatusLabel, {Status} from "./components/status-label";
 import AddCompanyButton from "./components/add-company-button";
 
 export default function Home() {

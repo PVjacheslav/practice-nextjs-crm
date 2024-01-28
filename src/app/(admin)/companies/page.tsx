@@ -6,8 +6,6 @@ import AddCompanyButton from '../../components/add-company-button';
 import CompanyTable from '../../components/company-table';
 import CompanyRow from '../../components/company-row';
 import { Status } from '@/app/components/status-label';
-// import { CompanyStatus } from '../../lib/api';
-// import { Company } from '../../lib/api';
 
 export interface PageProps {
     
